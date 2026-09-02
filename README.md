@@ -136,5 +136,7 @@ docs/                   scope and hardware guidance
 
 ## License
 
-Copyright © 2026 Nate Jones. Released under
-[GPL-3.0-or-later](LICENSE).
+Original project work is copyright © 2026 Nate Jones and released under
+[GPL-3.0-or-later](LICENSE), matching Parrot's menu and conversion tooling.
+Bundled and derived components retain their upstream copyrights and licenses;
+see [third-party notices](THIRD_PARTY.md).
