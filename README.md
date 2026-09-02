@@ -1,55 +1,140 @@
-# Parrot Drone Tools
+<p align="center">
+  <img src="assets/parrot-drone-tools.svg" alt="Parrot Drone Tools" width="100%">
+</p>
 
-Turn a standard Parrot OS 7 desktop into a drone and UAV security workstation
-using packages already present in Parrot's archive.
+<p align="center">
+  <a href="https://www.parrotsec.org/"><img alt="Parrot OS 7" src="https://img.shields.io/badge/Parrot_OS-7.x-15d4c8?style=flat-square"></a>
+  <img alt="Architecture: amd64" src="https://img.shields.io/badge/architecture-amd64-7857d8?style=flat-square">
+  <a href="LICENSE"><img alt="License: GPL-3.0-or-later" src="https://img.shields.io/badge/license-GPL--3.0--or--later-8bc34a?style=flat-square"></a>
+  <img alt="Release status: pre-release" src="https://img.shields.io/badge/status-pre--release-f0a33b?style=flat-square">
+</p>
 
-This project installs the `parrot-tools-drone` metapackage and adds a native
-**Drone & UAV** application-menu domain. It does not install hardware drivers,
-configure radios, modify graphics drivers, or reproduce a particular machine.
+Parrot Drone Tools turns a standard Parrot OS desktop into a focused drone and
+UAV security workstation. It installs a curated, archive-native toolbox and adds
+the missing **Drone & UAV** application-menu domain.
 
-## Status
+> [!IMPORTANT]
+> The first standalone release targets **Parrot OS 7.x on amd64**. The package
+> and menu payload are validated; a complete zero-to-finished run on a fresh
+> Parrot installation remains the final pre-release test.
 
-The installer is under development. The package and menu payload were validated
-on Parrot 7.3 amd64 and arm64 as part of the original Parrot Drone Edition work.
-The compatibility package currently bundled for `python3-pymavlink` is amd64
-only, so the first standalone installer release targets amd64.
+## What it adds
 
-## Install
+| Menu category | Working set |
+|---|---|
+| SDR & RF Analysis | GNU Radio, Gqrx, SDR++, Inspectrum, HackRF, rtl_433, SatDump |
+| Remote ID & DroneID | Kismet and Parrot's AntSDR DJI DroneID capture helper |
+| MAVLink & Ground Control | pymavlink tools and CAN/DroneCAN foundations |
+| GNSS & GPS | GNSS-SDR, gpsd tools, GPS conversion and RTK foundations |
+| Counter-UAS & Detection | ADS-B airspace awareness and capture/analysis foundations |
+| Firmware & Hardware | Binwalk, Rizin, OpenOCD, flashrom, PulseView and serial tools |
 
-Clone or download a release, then run:
+The metapackage recommends the relevant SDR backends and Kismet capture helpers
+already available in Parrot, so supported radios can be added later without
+rebuilding the workstation.
+
+## Quick start
+
+### 1. Get the repository
+
+```bash
+git clone https://github.com/njones920/parrot-drone-tools.git
+cd parrot-drone-tools
+```
+
+Release archives work too; the installer only needs the complete repository
+contents.
+
+### 2. Install
 
 ```bash
 sudo ./install.sh
 ```
 
-The default installation uses Parrot's own package archive. Suggested packages
-are not installed automatically.
+The installer will:
 
-Verify an installation at any time:
+1. Confirm Parrot 7.x and amd64 before changing anything.
+2. Confirm that the installed Parrot menu layout is compatible.
+3. Verify both bundled packages against `SHA256SUMS`.
+4. Install the compatibility package and `parrot-tools-drone` through APT.
+5. Add seven menu categories and 23 launchers.
+6. Run the same verification available to the user.
+
+Expect approximately **2.4 GB** of archive downloads on a minimal installation.
+Suggested packages are not installed automatically.
+
+### 3. Verify
 
 ```bash
 ./verify.sh
 ```
 
-Remove the menu integration and metapackage with:
+Healthy output looks like:
+
+```text
+PASS  parrot-tools-drone 7.3.0
+PASS  pymavlink 2.4.37
+PASS  7 menu categories
+PASS  23 application launchers
+PASS  23 launchers protected from update-launchers
+PASS  Drone & UAV menu registered once
+```
+
+The script is safe to run again. Existing menu integration is detected instead
+of duplicated.
+
+## Requirements
+
+- Parrot OS 7.x desktop
+- amd64 architecture
+- Internet access to Parrot's package repositories
+- `sudo`
+- Approximately 2.4 GB for the recommended toolbox
+
+No SDR, drone, radio, or GPU is required to install it.
+
+## Why two bundled packages?
+
+`parrot-tools-drone` is the small metapackage that defines the toolbox.
+`python3-pymavlink` is rebuilt from Parrot's source with one compatibility patch:
+Parrot 7.3's package depends on the retired Python 2 `future` library even though
+the shipped Python 3 code does not need it.
+
+Both `.deb` files are committed with recorded SHA-256 sums. The metapackage's
+Debian source and the complete pymavlink patch are included for inspection.
+Everything else is resolved normally from Parrot.
+
+## Scope
+
+The baseline is built from Parrot's package archive. Hardware setup is left to
+Parrot and the device vendor, while Damn Vulnerable Drone remains a separate
+optional lab. See [package scope](docs/PACKAGE-SCOPE.md) and
+[hardware notes](docs/HARDWARE.md).
+
+## Uninstall
 
 ```bash
 sudo ./uninstall.sh
 ```
 
-Removing the metapackage does not automatically remove tools that APT installed
-with it.
+This removes the Drone & UAV menu integration and metapackage. Tools previously
+installed by APT are retained, avoiding a surprise mass-removal of software or
+user data.
 
-## Scope
+## Repository layout
 
-The toolbox covers SDR and RF analysis, Remote ID foundations, MAVLink and
-DroneCAN telemetry, GNSS, airspace awareness, firmware analysis, and common
-radio backends. See [docs/PACKAGE-SCOPE.md](docs/PACKAGE-SCOPE.md).
-
-Damn Vulnerable Drone is deliberately separate because it is large, niche, and
-intentionally vulnerable. Hardware and GPU setup are outside this project's
-scope.
+```text
+install.sh             guarded installer
+verify.sh              read-only installation checks
+uninstall.sh           conservative menu/metapackage removal
+menu/                  7 categories, 23 launchers and menu patch
+packages/              verified installable packages and checksums
+packaging/              Debian source for parrot-tools-drone
+patches/                pymavlink compatibility patch
+docs/                   scope and hardware guidance
+```
 
 ## License
 
-GPL-3.0-or-later.
+Copyright © 2026 Nate Jones. Released under
+[GPL-3.0-or-later](LICENSE).
