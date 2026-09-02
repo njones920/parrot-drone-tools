@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: Nate Jones <njones920@gmail.com>
 Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.7.2
-Homepage: https://www.parrotsec.org/
+Homepage: https://github.com/njones920/parrot-drone-tools
 
 Package: parrot-tools-drone
 Architecture: any

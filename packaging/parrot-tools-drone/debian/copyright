@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: parrot-tools-drone
-Source: https://gitlab.com/parrotsec/packages/parrot-tools
+Source: https://github.com/njones920/parrot-drone-tools
 
 Files: *
 Copyright: 2026 Nate Jones <njones920@gmail.com>
