@@ -6,17 +6,14 @@
   <a href="https://www.parrotsec.org/"><img alt="Parrot OS 7" src="https://img.shields.io/badge/Parrot_OS-7.x-15d4c8?style=flat-square"></a>
   <img alt="Architecture: amd64" src="https://img.shields.io/badge/architecture-amd64-7857d8?style=flat-square">
   <a href="LICENSE"><img alt="License: GPL-3.0-or-later" src="https://img.shields.io/badge/license-GPL--3.0--or--later-8bc34a?style=flat-square"></a>
-  <img alt="Release status: pre-release" src="https://img.shields.io/badge/status-pre--release-f0a33b?style=flat-square">
+  <a href="https://github.com/njones920/parrot-drone-tools/releases/tag/v7.3.0"><img alt="Release: v7.3.0" src="https://img.shields.io/badge/release-v7.3.0-8bc34a?style=flat-square"></a>
 </p>
 
 Parrot Drone Tools turns a standard Parrot OS desktop into a focused drone and
 UAV security workstation. It installs a curated, archive-native toolbox and adds
 the missing **Drone & UAV** application-menu domain.
 
-> [!IMPORTANT]
-> The first standalone release targets **Parrot OS 7.x on amd64**. The package
-> and menu payload are validated; a complete zero-to-finished run on a fresh
-> Parrot installation remains the final pre-release test.
+The first standalone release targets **Parrot OS 7.x on amd64**.
 
 ## What it adds
 
