@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=OpenOCD
+Comment=Debug flight controllers over JTAG and SWD
+Encoding=UTF-8
+Exec=parrot-exec --sudo "openocd --help"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-07-drone-firmware;15-drone;
+X-Parrot-Package=openocd

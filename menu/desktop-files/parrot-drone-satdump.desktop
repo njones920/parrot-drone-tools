@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=SatDump
+Comment=Satellite and downlink demodulation toolkit
+Encoding=UTF-8
+Exec=satdump-ui
+Icon=parrot-menu
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=15-01-drone-rf;15-drone;
+X-Parrot-Package=satdump

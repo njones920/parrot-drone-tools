@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=RfCat
+Comment=Sub-GHz transceiver control for drone telemetry links
+Encoding=UTF-8
+Exec=parrot-exec --sudo "rfcat -h"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-01-drone-rf;15-drone;
+X-Parrot-Package=rfcat

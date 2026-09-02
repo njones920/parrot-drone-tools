@@ -1,0 +1,146 @@
+Source: parrot-tools-drone
+Section: metapackages
+Priority: optional
+Maintainer: Nate Jones <njones920@gmail.com>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.2
+Homepage: https://www.parrotsec.org/
+
+Package: parrot-tools-drone
+Architecture: any
+Depends:
+ ${misc:Depends},
+Recommends:
+ aircrack-ng [!i386],
+ airspy,
+ avrdude,
+ bettercap,
+ binwalk,
+ bladerf,
+ bluez,
+ bluez-hcidump,
+ bluez-tools,
+ bully,
+ can-utils [!i386],
+ cubicsdr,
+ dfu-util,
+ dnsmasq,
+ ffmpeg,
+ flashrom,
+ gnss-sdr,
+ gnuradio,
+ gnuradio-doc,
+ gpredict,
+ gpsbabel,
+ gpsd,
+ gpsd-clients,
+ gpsd-tools,
+ gqrx-sdr,
+ gr-air-modes,
+ gr-osmosdr,
+ gr-satellites,
+ gstreamer1.0-tools,
+ hackrf,
+ hackrf-firmware,
+ hcxdumptool,
+ hcxtools,
+ hostapd,
+ inspectrum,
+ iw,
+ kismet,
+ kismet-capture-antsdr-droneid,
+ kismet-capture-bladerf-wiphy,
+ kismet-capture-freaklabs-zigbee,
+ kismet-capture-hak5-wifi-coconut,
+ kismet-capture-linux-bluetooth,
+ kismet-capture-linux-wifi,
+ kismet-capture-nrf-51822,
+ kismet-capture-nrf-52840,
+ kismet-capture-nrf-mousejack,
+ kismet-capture-rtl433,
+ kismet-capture-rtladsb,
+ kismet-capture-rz-killerbee,
+ kismet-capture-ti-cc-2531,
+ kismet-capture-ti-cc-2540,
+ kismet-capture-ubertooth-one,
+ kismet-logtools,
+ limesuite,
+ macchanger,
+ mdk3,
+ mdk4,
+ minicom,
+ mpv,
+ multimon-ng,
+ opencv-data,
+ openocd,
+ picocom,
+ pixiewps,
+ pulseview,
+ python3-meshtastic,
+ python3-numpy,
+ python3-onnxruntime,
+ python3-opencv,
+ python3-pymavlink,
+ python3-scapy,
+ python3-serial,
+ python3-torch | python3-torch-cuda,
+ python3-torchvision,
+ radare2,
+ readsb,
+ reaver,
+ rfkill,
+ rizin,
+ rtklib,
+ rtl-433,
+ rtl-sdr,
+ sasquatch,
+ satdump,
+ screen,
+ sdrpp,
+ sigrok-cli,
+ soapyremote-server,
+ soapysdr-module-all,
+ soapysdr-tools,
+ socat,
+ squashfs-tools,
+ stlink-tools,
+ stm32flash,
+ tcpdump,
+ tshark,
+ ubertooth,
+ uhd-host,
+ urjtag,
+ v4l-utils,
+ viking,
+ wifite,
+ wireless-tools,
+Suggests:
+ airgeddon,
+ chirp,
+ eaphammer,
+ esptool,
+ freeradius-wpe,
+ ghidra,
+ gtk-meshtastic-client,
+ hostapd-wpe,
+ libiio-utils,
+ nvidia-cuda-toolkit,
+ rfcat,
+ rtklib-qt,
+ wifipumpkin3,
+ wireshark,
+Section: metapackages
+Priority: optional
+Description: drone and UAV security testing tools
+ This metapackage installs tools for security testing and analysis of drone
+ and UAV systems. It covers SDR and RF analysis of telemetry, control, and
+ video links; Remote ID and DJI DroneID capture; MAVLink and DroneCAN
+ telemetry; Meshtastic field links; GNSS; firmware and hardware analysis; and
+ computer-vision support for optical detection.
+ .
+ The recommended dependencies include the SDR backends and Kismet capture
+ helpers available in the archive. This provides support for a range of radio
+ devices without requiring additional packages during field operation.
+ .
+ General password recovery, reverse engineering, forensics, and web security
+ tools remain in their existing Parrot metapackages.

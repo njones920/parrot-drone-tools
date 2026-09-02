@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=mdk4 (deauth)
+Comment=Wi-Fi management frame testing tool
+Encoding=UTF-8
+Exec=parrot-exec --sudo "mdk4 --help"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-02-remote-id;15-drone;
+X-Parrot-Package=mdk4

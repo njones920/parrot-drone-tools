@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=can-utils (DroneCAN)
+Comment=CAN utilities for DroneCAN and UAVCAN peripherals
+Encoding=UTF-8
+Exec=candump -h
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-03-mavlink;15-drone;
+X-Parrot-Package=can-utils

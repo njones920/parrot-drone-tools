@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=readsb (ADS-B)
+Comment=Receive ADS-B traffic for airspace awareness and deconfliction
+Encoding=UTF-8
+Exec=parrot-exec --sudo "readsb --help"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-05-counter-uas;15-drone;
+X-Parrot-Package=readsb

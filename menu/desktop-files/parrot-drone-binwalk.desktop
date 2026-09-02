@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Binwalk
+Comment=Carve and analyse drone firmware images
+Encoding=UTF-8
+Exec=binwalk --help
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-07-drone-firmware;15-drone;
+X-Parrot-Package=binwalk

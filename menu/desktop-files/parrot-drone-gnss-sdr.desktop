@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=GNSS-SDR
+Comment=GNSS software receiver for interference and spoofing detection
+Encoding=UTF-8
+Exec=parrot-exec --sudo "gnss-sdr --help"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-04-gnss;15-drone;
+X-Parrot-Package=gnss-sdr

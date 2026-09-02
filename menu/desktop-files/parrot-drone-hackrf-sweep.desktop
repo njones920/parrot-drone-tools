@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=HackRF Sweep
+Comment=Survey 5.8 GHz FPV bands with HackRF
+Encoding=UTF-8
+Exec=parrot-exec --sudo "hackrf_sweep -f 5300:6000"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-01-drone-rf;15-drone;
+X-Parrot-Package=hackrf

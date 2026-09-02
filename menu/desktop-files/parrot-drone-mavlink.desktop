@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=pymavlink tools
+Comment=MAVLink protocol library and utilities
+Encoding=UTF-8
+Exec=bash -c "python3 -c 'import pymavlink; print(\\"pymavlink\\", pymavlink.__version__)'; exec bash"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-03-mavlink;15-drone;
+X-Parrot-Package=python3-pymavlink

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=cgps
+Comment=Live GPS fix monitor
+Encoding=UTF-8
+Exec=cgps
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-04-gnss;15-drone;
+X-Parrot-Package=gpsd-tools

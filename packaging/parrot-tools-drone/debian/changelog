@@ -1,0 +1,8 @@
+parrot-tools-drone (7.3.0) parrot; urgency=medium
+
+  * Initial release.
+  * Add a drone and UAV security metapackage using packages from the
+    Parrot archive.
+  * Add optional ESP32, Meshtastic GUI, and AD936x/PlutoSDR support.
+
+ -- Nate Jones <njones920@gmail.com>  Thu, 27 Aug 2026 17:26:30 -0700

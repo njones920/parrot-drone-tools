@@ -1,0 +1,5 @@
+*.log
+*.bak
+packaging/*.buildinfo
+packaging/*.changes
+packaging/*.deb

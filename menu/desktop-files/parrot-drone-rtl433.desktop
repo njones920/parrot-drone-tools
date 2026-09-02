@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=rtl_433
+Comment=Decode ISM-band telemetry and remote-control sensors
+Encoding=UTF-8
+Exec=parrot-exec --sudo "rtl_433 -h"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-01-drone-rf;15-drone;
+X-Parrot-Package=rtl-433

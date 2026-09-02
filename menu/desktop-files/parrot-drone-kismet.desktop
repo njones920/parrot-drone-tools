@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Kismet
+Comment=Detect wireless UAV traffic and DJI DroneID information elements
+Encoding=UTF-8
+Exec=parrot-exec --sudo "kismet"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-02-remote-id;15-drone;
+X-Parrot-Package=kismet

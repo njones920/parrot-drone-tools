@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Inspectrum
+Comment=Inspect captured drone radio signals offline
+Encoding=UTF-8
+Exec=inspectrum
+Icon=parrot-menu
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=15-01-drone-rf;15-drone;
+X-Parrot-Package=inspectrum

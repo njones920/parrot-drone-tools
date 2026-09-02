@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=tshark (drone protocols)
+Comment=Capture AR.Drone, DJI UAV control, and UAVCAN traffic
+Encoding=UTF-8
+Exec=bash -c "sudo tshark -Y 'ar_drone || djiuav || uavcan_can || uavcan_dsdl'; exec bash"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-01-drone-rf;15-05-counter-uas;15-drone;
+X-Parrot-Package=tshark

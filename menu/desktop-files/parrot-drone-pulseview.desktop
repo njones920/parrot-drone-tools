@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=PulseView
+Comment=Inspect UART, SPI, and I2C signals on drone hardware
+Encoding=UTF-8
+Exec=pulseview
+Icon=parrot-menu
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=15-07-drone-firmware;15-drone;
+X-Parrot-Package=pulseview

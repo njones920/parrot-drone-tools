@@ -1,0 +1,119 @@
+Description: Drop the python3-future dependency
+ python3-future was removed from Debian after bookworm and has no installation
+ candidate on trixie, which leaves this package uninstallable on Parrot 7.x
+ (apt: "Depends: python3-future but it is not installable").
+ .
+ The dependency is over-broad. 63 files import "builtins", but none of them need
+ the future package: builtins is a Python 3 standard library module and future
+ only supplies it as a Python 2 backport. Only four files genuinely used future,
+ for two Python 2 shims:
+ .
+   * future.utils.iteritems(d)                 -> d.items()
+   * future.standard_library.install_aliases() -> a no-op on Python 3
+ .
+ future is declared in three separate places, and all three must be cleared or
+ dh_python3 and any PEP 517 build will keep requiring it:
+ .
+   * setup.py install_requires
+   * pyproject.toml [build-system] requires
+   * requirements.txt
+ .
+ Removing them leaves runtime behaviour unchanged on Python 3. Verified with
+ future absent: import pymavlink, mavutil, the ardupilotmega dialect and message
+ construction all work on Python 3.13; only the code generator was affected.
+ .
+ Note that bumping to current upstream is NOT an alternative fix here: pymavlink
+ 2.4.49 drops future but adds fastcrc, which has no Debian source package at all.
+Author: Nate Jones <njones920@gmail.com>
+Bug-Parrot: python3-pymavlink and rfcat uninstallable on Parrot 7.x
+Forwarded: not-needed
+Last-Update: 2026-08-26
+---
+--- a/setup.py
++++ b/setup.py
+@@ -148,7 +148,6 @@
+                    'tools/magfit_WMM.py',
+        ],
+        install_requires=[
+-            'future',
+             'lxml',
+        ],
+        cmdclass={'build_py': custom_build_py},
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -2,5 +2,5 @@
+ # you need to drop setup_requires from setup.py as well.
+ # https://peps.python.org/pep-0518/#rationale
+ [build-system]
+-requires = ["setuptools>=42","future","lxml"]
++requires = ["setuptools>=42","lxml"]
+ build-backend = "setuptools.build_meta"
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,3 +1,2 @@
+ lxml>=3.6.0
+-future>=0.15.2
+ wheel>=0.37.1
+--- a/generator/mavgen_c.py
++++ b/generator/mavgen_c.py
+@@ -6,7 +6,6 @@
+ Released under GNU GPL version 3 or later
+ '''
+ from __future__ import print_function
+-from future.utils import iteritems
+ 
+ from builtins import range
+ from builtins import object
+@@ -623,7 +622,7 @@
+     # form message name array
+     xml.message_name_array = ''
+     # sort by names
+-    for msgid, name in sorted(iteritems(xml.message_names), key=lambda k_v: (k_v[1], k_v[0])):
++    for msgid, name in sorted(xml.message_names.items(), key=lambda k_v: (k_v[1], k_v[0])):
+         xml.message_name_array += '{ "%s", %u }, ' % (name, msgid)
+     xml.message_name_array = xml.message_name_array[:-2]
+ 
+--- a/generator/mavgen.py
++++ b/generator/mavgen.py
+@@ -23,8 +23,6 @@
+ '''
+ 
+ from __future__ import print_function
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import object
+ import os
+ import re
+--- a/tools/mavplayback.py
++++ b/tools/mavplayback.py
+@@ -7,8 +7,6 @@
+ Useful for visualising flights
+ '''
+ from __future__ import print_function
+-from future import standard_library
+-standard_library.install_aliases()
+ 
+ from builtins import object
+ 
+--- a/tools/mavtelemetry_datarates.py
++++ b/tools/mavtelemetry_datarates.py
+@@ -9,8 +9,6 @@
+ Released under GNU GPL version 3 or later
+ '''
+ 
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import str
+ 
+ ## Generate window for calculating the datasize
+--- a/examples/mav2pcap.py
++++ b/examples/mav2pcap.py
+@@ -15,8 +15,6 @@
+ 
+ 
+ from __future__ import print_function
+-from future import standard_library
+-standard_library.install_aliases()
+ from builtins import object
+ from builtins import open
+ import sys

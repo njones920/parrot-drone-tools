@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Kismet AntSDR DroneID
+Comment=Capture DJI DroneID traffic with an AntSDR E200
+Encoding=UTF-8
+Exec=parrot-exec --sudo "kismet_cap_antsdr_droneid --help"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-02-remote-id;15-drone;
+X-Parrot-Package=kismet-capture-antsdr-droneid

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Flashrom
+Comment=Dump or write SPI flash from an airframe
+Encoding=UTF-8
+Exec=parrot-exec --sudo "flashrom --help"
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-07-drone-firmware;15-drone;
+X-Parrot-Package=flashrom

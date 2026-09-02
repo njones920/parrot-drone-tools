@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Rizin
+Comment=Reverse engineering framework for flight-controller binaries
+Encoding=UTF-8
+Exec=rizin -h
+Icon=parrot-menu
+StartupNotify=false
+Terminal=true
+Type=Application
+Categories=15-07-drone-firmware;15-drone;
+X-Parrot-Package=rizin

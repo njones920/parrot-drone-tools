@@ -1,0 +1,55 @@
+--- parrot-applications.menu
++++ parrot-applications.menu
+@@ -23,6 +23,7 @@
+     <Separator> </Separator>
+     <Menuname>Forensic Tools</Menuname>
+     <Menuname>Automotive</Menuname>
++    <Menuname>Drone &amp; UAV</Menuname>
+     <Menuname>Reverse Engineering</Menuname>
+     <Separator> </Separator>
+     <Menuname>Reporting Tools</Menuname>
+@@ -704,5 +705,44 @@
+       </And>
+     </Include>
+   </Menu>
++  <Menu>
++    <Name>Drone &amp; UAV</Name>
++    <Directory>15-drone.directory</Directory>
++    <Include>
++      <And>
++        <Category>15-drone</Category>
++      </And>
++    </Include>
++    <Menu>
++      <Name>SDR &amp; RF Analysis</Name>
++      <Directory>15-01-drone-rf.directory</Directory>
++      <Include><And><Category>15-01-drone-rf</Category></And></Include>
++    </Menu>
++    <Menu>
++      <Name>Remote ID &amp; DroneID</Name>
++      <Directory>15-02-remote-id.directory</Directory>
++      <Include><And><Category>15-02-remote-id</Category></And></Include>
++    </Menu>
++    <Menu>
++      <Name>MAVLink &amp; Ground Control</Name>
++      <Directory>15-03-mavlink.directory</Directory>
++      <Include><And><Category>15-03-mavlink</Category></And></Include>
++    </Menu>
++    <Menu>
++      <Name>GNSS &amp; GPS</Name>
++      <Directory>15-04-gnss.directory</Directory>
++      <Include><And><Category>15-04-gnss</Category></And></Include>
++    </Menu>
++    <Menu>
++      <Name>Counter-UAS &amp; Detection</Name>
++      <Directory>15-05-counter-uas.directory</Directory>
++      <Include><And><Category>15-05-counter-uas</Category></And></Include>
++    </Menu>
++    <Menu>
++      <Name>Firmware &amp; Hardware</Name>
++      <Directory>15-07-drone-firmware.directory</Directory>
++      <Include><And><Category>15-07-drone-firmware</Category></And></Include>
++    </Menu>
++  </Menu>
+   </Menu>
+ </Menu>
