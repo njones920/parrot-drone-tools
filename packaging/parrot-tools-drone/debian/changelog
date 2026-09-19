@@ -1,3 +1,11 @@
+parrot-tools-drone (7.4.0) parrot; urgency=medium
+
+  * Rebuild for Parrot 7.4 (parrot-core 7.4.0, parrot-menu 3:7.4.3).
+  * No changes to the tool selection; every recommended and suggested
+    package was re-checked against the Parrot 7.4 archive.
+
+ -- Nate Jones <njones920@gmail.com>  Sat, 19 Sep 2026 15:20:00 -0700
+
 parrot-tools-drone (7.3.0) parrot; urgency=medium
 
   * Initial release.
