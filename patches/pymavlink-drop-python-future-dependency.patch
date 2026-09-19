@@ -11,12 +11,13 @@ Description: Drop the python3-future dependency
    * future.utils.iteritems(d)                 -> d.items()
    * future.standard_library.install_aliases() -> a no-op on Python 3
  .
- future is declared in three separate places, and all three must be cleared or
+ future is declared in four separate places, and all four must be cleared or
  dh_python3 and any PEP 517 build will keep requiring it:
  .
    * setup.py install_requires
    * pyproject.toml [build-system] requires
    * requirements.txt
+   * debian/control Build-Depends
  .
  Removing them leaves runtime behaviour unchanged on Python 3. Verified with
  future absent: import pymavlink, mavutil, the ardupilotmega dialect and message
@@ -117,3 +118,13 @@ Last-Update: 2026-08-26
  from builtins import object
  from builtins import open
  import sys
+--- a/debian/control
++++ b/debian/control
+@@ -9,7 +9,6 @@
+                libxslt-dev,
+                pybuild-plugin-pyproject,
+                python3-all-dev,
+-               python3-future,
+                python3-lxml,
+                python3-numpy,
+                python3-pytest,
