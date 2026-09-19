@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 135.47 135.47">
+<!-- Parrot Drone Tools category icon: single flat color and thin ring, matching parrot-menu's category set -->
+<g transform="translate(67.735 67.735)" fill="none" stroke="#17917a">
+<circle r="61" stroke-width="5"/>
+<g transform="scale(.8)">
+<path d="M0 20V-5" fill="none" stroke="#17917a" stroke-width="8" stroke-linecap="round"/>
+<circle cx="0" cy="-8" r="4" fill="#17917a"/>
+<path d="M-15-18a21.21 21.21 0 0 1 30 0" fill="none" stroke="#17917a" stroke-width="7" stroke-linecap="round"/>
+<path d="M-25-25a35.36 35.36 0 0 1 50 0" fill="none" stroke="#17917a" stroke-width="7" stroke-linecap="round"/>
+<path d="M-35-32a49.5 49.5 0 0 1 70 0" fill="none" stroke="#17917a" stroke-width="7" stroke-linecap="round"/>
+</g></g></svg>

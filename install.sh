@@ -50,6 +50,14 @@ install -m 0644 "$ROOT_DIR"/menu/desktop-files/*.desktop \
 install -m 0644 "$ROOT_DIR"/menu/desktop-files/*.desktop \
     /usr/share/applications/
 
+info "Installing Drone & UAV category icons"
+install -d -m 0755 /usr/share/icons/hicolor/scalable/categories
+install -m 0644 "$ROOT_DIR"/icons/hicolor/scalable/categories/*.svg \
+    /usr/share/icons/hicolor/scalable/categories/
+if command -v gtk-update-icon-cache >/dev/null; then
+    gtk-update-icon-cache -f /usr/share/icons/hicolor 2>/dev/null || true
+fi
+
 if grep -Fq "$MENU_MARKER" "$MENU_FILE"; then
     info "Drone & UAV menu is already present"
 else

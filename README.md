@@ -54,7 +54,7 @@ The installer will:
 2. Confirm that the installed Parrot menu layout is compatible.
 3. Verify both bundled packages against `SHA256SUMS`.
 4. Install the compatibility package and `parrot-tools-drone` through APT.
-5. Add seven menu categories and 23 launchers.
+5. Add seven menu categories with their own icons, and 23 launchers.
 6. Run the same verification available to the user.
 
 Expect approximately **2.4 GB** of archive downloads on a minimal installation.
@@ -72,6 +72,7 @@ Healthy output looks like:
 PASS  parrot-tools-drone 7.4.0
 PASS  pymavlink 2.4.37
 PASS  7 menu categories
+PASS  7 category icons
 PASS  23 application launchers
 PASS  23 launchers protected from update-launchers
 PASS  Drone & UAV menu registered once
@@ -125,6 +126,7 @@ install.sh             guarded installer
 verify.sh              read-only installation checks
 uninstall.sh           conservative menu/metapackage removal
 menu/                  7 categories, 23 launchers and menu patch
+icons/                 category icons for the Drone & UAV menu
 packages/              verified installable packages and checksums
 packaging/              Debian source for parrot-tools-drone
 patches/                pymavlink compatibility patch

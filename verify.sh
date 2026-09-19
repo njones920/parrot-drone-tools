@@ -33,6 +33,14 @@ done
 [ "$directory_count" -eq 7 ] && pass "7 menu categories" ||
     fail "$directory_count of 7 menu categories installed"
 
+icon_count=0
+for source in "$ROOT_DIR"/icons/hicolor/scalable/categories/*.svg; do
+    target="/usr/share/icons/hicolor/scalable/categories/$(basename "$source")"
+    if [ -f "$target" ]; then icon_count=$((icon_count + 1)); fi
+done
+[ "$icon_count" -eq 7 ] && pass "7 category icons" ||
+    fail "$icon_count of 7 category icons installed"
+
 launcher_count=0
 mirror_count=0
 for source in "$ROOT_DIR"/menu/desktop-files/*.desktop; do

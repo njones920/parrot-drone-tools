@@ -17,6 +17,12 @@ done
 for source in "$ROOT_DIR"/menu/desktop-directories/*.directory; do
     rm -f "/usr/share/desktop-directories/$(basename "$source")"
 done
+for source in "$ROOT_DIR"/icons/hicolor/scalable/categories/*.svg; do
+    rm -f "/usr/share/icons/hicolor/scalable/categories/$(basename "$source")"
+done
+if command -v gtk-update-icon-cache >/dev/null; then
+    gtk-update-icon-cache -f /usr/share/icons/hicolor 2>/dev/null || true
+fi
 
 if grep -Fq "$MENU_MARKER" "$MENU_FILE"; then
     patch --dry-run --reverse --forward "$MENU_FILE" \
