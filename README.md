@@ -52,8 +52,8 @@ The installer will:
 
 1. Confirm Parrot 7.x and amd64 before changing anything.
 2. Confirm that the installed Parrot menu layout is compatible.
-3. Verify both bundled packages against `SHA256SUMS`.
-4. Install the compatibility package and `parrot-tools-drone` through APT.
+3. Verify the bundled metapackage against `SHA256SUMS`.
+4. Install archive `python3-pymavlink` and `parrot-tools-drone` through APT.
 5. Add seven menu categories with their own icons, and 23 launchers.
 6. Run the same verification available to the user.
 
@@ -91,16 +91,29 @@ of duplicated.
 
 No SDR, drone, radio, or GPU is required to install it.
 
-## Why two bundled packages?
+## Why one bundled package?
 
-`parrot-tools-drone` is the small metapackage that defines the toolbox.
-`python3-pymavlink` is rebuilt from Parrot's source with one compatibility patch:
-Parrot's package, unchanged through 7.4, depends on the retired Python 2 `future`
-library even though the shipped Python 3 code does not need it.
+`parrot-tools-drone` is the small metapackage that defines the toolbox. Its
+Debian source is included under `packaging/`, and its SHA-256 is recorded in
+`packages/SHA256SUMS`. Everything else is resolved from Parrot's archive.
 
-Both `.deb` files are committed with recorded SHA-256 sums. The metapackage's
-Debian source and the complete pymavlink patch are included for inspection.
-Everything else is resolved normally from Parrot.
+Parrot fixed the obsolete `python3-future` dependency in
+`python3-pymavlink` **2.4.37-0parrot2**. Our bundled compatibility package and
+patch are no longer needed.
+
+### Existing installations
+
+After updating this repository, rerun `sudo ./install.sh` to switch to the
+archive package and refresh menu integration. To upgrade just pymavlink:
+
+```bash
+sudo apt-get update
+sudo apt-get install python3-pymavlink
+```
+
+APT upgrades `2.4.37-0parrot1+drone1` to `2.4.37-0parrot2` normally; no purge,
+manual downgrade, or package hold is needed. The Python library still reports
+`2.4.37`; use `dpkg-query -W python3-pymavlink` to see the packaging revision.
 
 ## Scope
 
@@ -127,9 +140,8 @@ verify.sh              read-only installation checks
 uninstall.sh           conservative menu/metapackage removal
 menu/                  7 categories, 23 launchers and menu patch
 icons/                 category icons for the Drone & UAV menu
-packages/              verified installable packages and checksums
+packages/              verified metapackage and checksum
 packaging/              Debian source for parrot-tools-drone
-patches/                pymavlink compatibility patch
 docs/                   scope and hardware guidance
 ```
 

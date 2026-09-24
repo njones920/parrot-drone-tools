@@ -21,13 +21,10 @@ fi
 
 shopt -s nullglob
 metapackages=("$ROOT_DIR"/packages/parrot-tools-drone_*.deb)
-pymavlink_packages=("$ROOT_DIR"/packages/python3-pymavlink_*_amd64.deb)
 shopt -u nullglob
 
 [ "${#metapackages[@]}" -eq 1 ] ||
     die "expected exactly one parrot-tools-drone package in packages/"
-[ "${#pymavlink_packages[@]}" -eq 1 ] ||
-    die "expected exactly one amd64 pymavlink compatibility package in packages/"
 
 info "Verifying bundled packages"
 (cd "$ROOT_DIR/packages" && sha256sum --check --strict SHA256SUMS) ||
@@ -36,8 +33,9 @@ info "Verifying bundled packages"
 info "Refreshing Parrot package metadata"
 apt-get update
 
-info "Installing the pymavlink compatibility package and drone metapackage"
-apt-get install -y "${pymavlink_packages[0]}" "${metapackages[0]}"
+info "Installing archive pymavlink and the drone metapackage"
+# Request pymavlink explicitly so existing +drone1 installations upgrade too.
+apt-get install -y python3-pymavlink "${metapackages[0]}"
 
 info "Installing Drone & UAV menu files"
 install -d -m 0755 /usr/share/desktop-directories
